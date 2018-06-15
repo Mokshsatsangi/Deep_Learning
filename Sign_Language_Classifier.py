@@ -110,4 +110,12 @@ test_y = [i[1] for i in test]
 model.save('Sign_Language_Interpreter.model')
 '''
 model.load('Sign_Language_Interpreter.model')
-print(model.predict([test_x[1]]))
+num = int(input('Enter a number of that image: '))
+prediction = model.predict([test_x[num]])
+print(prediction)
+if prediction[0][0] == float(1):
+    print('A')
+elif prediction[0][1] == float(1):
+    print('B')
+elif prediction[0][2] == float(1):
+    print('C')   
